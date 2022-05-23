@@ -1,0 +1,218 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Gmail自定义 NameSilo域名邮箱 | 言寺</title>
+<link rel="shortcut icon" href="https://xfine10.github.io/favicon.ico?v=1653280713504">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://xfine10.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Gmail自定义 NameSilo域名邮箱 | 言寺 - Atom Feed" href="https://xfine10.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="大家都想要一个与众不同的邮箱地址，除了个性外，还能更好的保护个人隐私，但很多方法都不能从根本上杜绝源头，比如gmail 采用用户名后添加“+”号和字符串，来预防垃圾邮件。
+既然大家注册了域名何不如这样做呢？利用域名供应商提供的电子邮件转发，..." />
+    <meta name="keywords" content="折腾" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://xfine10.github.io">
+  <img class="avatar" src="https://xfine10.github.io/images/avatar.png?v=1653280713504" alt="">
+  </a>
+  <h1 class="site-title">
+    言寺
+  </h1>
+  <p class="site-description">
+    非圣人，不屑为坏人，是枚好世间一切美文，美酒，美色的俗人。
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Gmail自定义 NameSilo域名邮箱
+            </h2>
+            <div class="post-info">
+              <span>
+                06-30-2018
+              </span>
+              <span>
+                2 min read
+              </span>
+              
+                <a href="https://xfine10.github.io/tag/Kue8MlCPz/" class="post-tag">
+                  # 折腾
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content" v-pre>
+                <p>大家都想要一个与众不同的邮箱地址，除了个性外，还能更好的保护个人隐私，但很多方法都不能从根本上杜绝源头，比如gmail 采用用户名后添加“+”号和字符串，来预防垃圾邮件。</p>
+<p>既然大家注册了域名何不如这样做呢？利用域名供应商提供的电子邮件转发，将域名邮箱地址重定向到一个常用的邮箱，这些域名邮箱可以用来账号注册，杜绝垃圾邮件或者预防用户账号泄露。不多说直接上教程:<br>
+##域名服务商设置邮箱转发</p>
+<p><a href="https://www.namesilo.com/account_domain_manage_email_forwarding.php">NameSilo</a>域名管理页面， 如图进入Email Forward设置页面，Email填邮箱名，Forwards to填自己需要转发的Gmail邮箱。<br>
+<img src="https://xfine10.github.io/post-images/1649154591235.jpg" alt="" loading="lazy"><br>
+<img src="https://xfine10.github.io/post-images/1649154613576.jpg" alt="" loading="lazy"></p>
+<p>##添加邮箱解析，设置MX记录</p>
+<p>在<a href="https://www.namesilo.com/account_domain_manage_dns.php">Manage DNS</a>管理页面设置MX<br>
+<img src="https://xfine10.github.io/post-images/1649154652282.jpg" alt="" loading="lazy"><br>
+设置MX记录。使用NameSilo 默认的MX记录。接着设置 SPF 记录，以防止被仿冒。使用以下值创建新的 TXT 记录：在值/应答/目标字段，输入** v=spf1 include:_spf.google.com ~all**。保存此记录。设置好后如下图:<br>
+<img src="https://xfine10.github.io/post-images/1649154672427.jpg" alt="" loading="lazy"><br>
+到此域名服务商设置邮箱转发完成。<br>
+##添加Gmail别名邮箱<br>
+进入<a href="https://mail.google.com/mail/u/0/#settings/accounts"> Gmail设置</a>账号设置页面，在<strong>用这个地址发送邮件</strong>选项，点击<strong>添加其他电子邮件地址</strong><br>
+<img src="https://xfine10.github.io/post-images/1649154731736.JPG" alt="" loading="lazy"><br>
+添加域名邮箱<br>
+<img src="https://xfine10.github.io/post-images/1649154745090.JPG" alt="" loading="lazy"></p>
+<p>设置好域名邮箱地址，接着设置SMTP服务器。SMTP服务器填 <strong>smtp.gmail.com</strong> ，用户名填自己的Gmail邮箱账号，密码填写邮箱密码，开启两步验证的账号需要<a href="https://myaccount.google.com/apppasswords">生成专用密码</a>。</p>
+<p>添加帐号保存。</p>
+<p>随后Gmail会收到确认邮件，点击链接确认申请，或者复制链接打开填入确认代码验证，验证成功，即可。<br>
+<img src="https://xfine10.github.io/post-images/1649154786549.JPG" alt="" loading="lazy"><br>
+<img src="https://xfine10.github.io/post-images/1649154796616.JPG" alt="" loading="lazy"><br>
+在Gmail账号设置页面将刚才添加的邮箱地址设置为默认地址即可。到此域名邮箱转发设置完成。</p>
+
+              </div>
+              <div class="toc-container">
+                
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://xfine10.github.io/post/hong-ding-shang-ren-guan-shang/">
+              <h3 class="post-title">
+                红顶商人：官？商？
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: 'c747d28a4c8acc99daed',
+    clientSecret: '4141c73f499b712934e68e9e8cc2808ff06753d2',
+    repo: 'xfine10.github.io',
+    owner: 'xfine10',
+    admin: ['xfine10'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://xfine10.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
